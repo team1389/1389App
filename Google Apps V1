@@ -1,0 +1,26 @@
+function doPost(e) { // change to doPost(e) if you are recieving POST data
+  Logger.log('begin to work.');
+  var sheet1 = SpreadsheetApp.openById("1SBqMj1MZ3g6JiA9IKyBysQK4nRm5FSYDbcVHi62Ep40");
+  Logger.log(sheet1.getUrl());
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+
+  var headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0]; //read headers
+  var nextRow = sheet.getLastRow(); // get next row
+  var cell = sheet.getRange('a1');
+  var col = 0;
+  for (i in headers){ // loop through the headers and if a parameter name matches the header name insert the value
+    Logger.log('header:'+i);
+    if (headers[i] == "Timestamp"){
+      val = new Date();
+    } else {
+      val = e.parameter[headers[i]];
+      //  val = "TEST2";
+    }
+    cell.offset(nextRow, col).setValue(val);
+    col++;
+  }
+}
+//http://www.google.sc/support/forum/p/apps-script/thread?tid=345591f349a25cb4&hl=en
+function setUp() {
+  ScriptProperties.setProperty('active', SpreadsheetApp.getActiveSpreadsheet().getId());
+}
