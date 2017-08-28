@@ -1,0 +1,43 @@
+All Google Sheets Formulas
+Please see Google Sheets documentation for more information.
+
+DISCLAIMER:
+These formula examples skip some constructors. 
+
+MODE: "=MODE(FILTER(E2:E10000,B2:B10000=449))"
+EXPLANATION:
+  - MODE is the most common number taken. The parameters require WHICH CELL
+    to take.
+  - CONSTRUCTOR: Defined cells. Example: =MODE(cell)
+
+FILTER: "=FILTER(E2:10000,B2:100000=449))"
+EXPLAINATION:
+  - FILTER screens out certain data based on criteria
+  - CONSTURCTORS : FILTER(What set of data do you want?, Based on what criteria?)
+  - In this case, we want data in cells E2 through E10000. We do not put column
+    E because Google sheets is not able to take that request.
+  - We also want to filter based on team number (in this case 449). The team
+    numbers are in column B.
+
+PERCENTILE: "=PERCENTILE(FILTER(E2:E10000,B2:B10000=449),0.9)"
+EXPLANATION:
+  - PERCENTILE gives the data at a certain defined percentile.
+  - For example, if I had a class of 20 students, and I want to know what is the
+    90th percentile (.9) of the class.
+  - CONSTRUCTORS: PERCENTILE(Defined cells, defined percentile).
+  - In this case, we want cells E2:1000, based on the fact that team 449 scored
+    them. (See Filter for more info).
+  - We want to see how they can do based 90% of their percentiles. Meaning,
+    how well they can do at the top 10% of their time.
+
+PERCENTILE RANK (Derived from PERCENTILE):
+"=PERCENTRANK(FILTER(E2:E10000,B2:B10000=449), MODE(FILTER(E2:E10000,B2:B10000=449)))"
+EXPLANATION:
+  - PERCENTILE RANK gives the number of the times something pops up. For example
+    if I have a data set of (0,0,0,0,0,1).
+  - The result would be 5/6. The MODE is 0 (5 numbers) out of 6 numbers.
+  - CONSTRUCTORS: =PERCENTRANK(FILTER(E2:E10000,B2:B10000=449), MODE(FILTER(E2:E10000,B2:B10000=449)))
+  - PERCENTRANK(DATA RANGE, WHAT DATA TO LOOK FOR)
+  - In this case, we want to find the number of times something pops up (MODE,
+    see MODE for more info), out of a certain data range (see FILTER).
+  - Number of times the MODE or a particular data set appears
