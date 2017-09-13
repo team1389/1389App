@@ -41,3 +41,24 @@ EXPLANATION:
   - In this case, we want to find the number of times something pops up (MODE,
     see MODE for more info), out of a certain data range (see FILTER).
   - Number of times the MODE or a particular data set appears
+  
+  IF STATEMENT 
+  "=IF(A2-(MAX(Sheet1!D1:D1000))<0,"DONE",A3-(MAX(Sheet1!D1:D1000)))"
+  - IF gives an output based on condition. A basic if statment. 
+  - CONSTRUCTORS: (condition, if true, if false). 
+  - In this case, if the A2 (value) - max value is less than zero, then say done. If that's not true, display
+    the value. 
+   
+  IMPORT RANGE 
+  "=IMPORTRANGE("1dlLtfWJsAavKXzaz8fMtir1sWPy9x5b55kBEAdMyJkI","matches!C1:F14")"
+  - imports range based on spreadsheet key (url, or id), and the matches. 
+  - CONSTRUCTORS: (url, or id, range (specify range))
+  - In this case, the id is "1dlLtfWJsAavKXzaz8fMtir1sWPy9x5b55kBEAdMyJkI", found after the "d" in the url. 
+    We want to import range "sheet 'matches' and the range C1;F14. 
+    
+  IF ERROR
+   "=IFERROR(MODE(FILTER(Sheet1!E2:E10001,Sheet1!B2:B10001=2961)),FILTER(Sheet1!E2:E10001,Sheet1!B2:B10001=2961))"
+   - If an error, what should I do? 
+   - CONSTRUCTORS: (error, no error) 
+   - IN this case if the MODE function gets an error, show the filtered information.
+ 
