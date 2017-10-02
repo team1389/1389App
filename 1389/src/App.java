@@ -118,25 +118,22 @@ public class App extends JFrame implements ActionListener
 
 
 
-		String[] columns = {"Match", "Team", "Autonomous Balls", "Autonomous Gear?", "Teleop Balls", 
+		String[] columnNames = new String []{"Match", "Team", "Autonomous Balls", "Autonomous Gear?", "Teleop Balls", 
 				"Teleop Gears", "Climb", "Errors"};
 
 
 
-		Object [][] data = {
-				{newFrame1 = match.getText()}, {newFrame2 = team.getText()}, {newFrame3 = autoBall.getText()}, 
-				{newFrame4 = autoGear.getText()}, {newFrame5 = teleBalls.getText()}, 
-				{newFrame6 = teleGears.getText()}, {newFrame7 = climb.getText()}, 
-				{newFrame8 = errors.getText()}};
+		Object [][] data = new Object[][] {
+			{match.getText()}, {team.getText()}, {autoBall.getText()}, 
+			{autoGear.getText()}, {teleBalls.getText()}, 
+			{teleGears.getText()}, {climb.getText()}, 
+			{errors.getText()}};
 
-		JTable table = new JTable(data, columns);
+			JTable table = new JTable(data, columnNames);
+			table.setVisible(true);
+			frame1.add(table);
 
-		table.setFillsViewportHeight(true);
-		frame1.add(table);
-		table.setVisible(true);
-
-		frame1.setVisible(true);
-
+			frame1.setVisible(true);
 
 
 
