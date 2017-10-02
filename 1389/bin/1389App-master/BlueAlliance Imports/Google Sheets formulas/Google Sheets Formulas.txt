@@ -1,0 +1,64 @@
+All Google Sheets Formulas
+Please see Google Sheets documentation for more information.
+
+DISCLAIMER:
+These formula examples skip some constructors. 
+
+MODE: "=MODE(FILTER(E2:E10000,B2:B10000=449))"
+EXPLANATION:
+  - MODE is the most common number taken. The parameters require WHICH CELL
+    to take.
+  - CONSTRUCTOR: Defined cells. Example: =MODE(cell)
+
+FILTER: "=FILTER(E2:10000,B2:100000=449))"
+EXPLAINATION:
+  - FILTER screens out certain data based on criteria
+  - CONSTURCTORS : FILTER(What set of data do you want?, Based on what criteria?)
+  - In this case, we want data in cells E2 through E10000. We do not put column
+    E because Google sheets is not able to take that request.
+  - We also want to filter based on team number (in this case 449). The team
+    numbers are in column B.
+
+PERCENTILE: "=PERCENTILE(FILTER(E2:E10000,B2:B10000=449),0.9)"
+EXPLANATION:
+  - PERCENTILE gives the data at a certain defined percentile.
+  - For example, if I had a class of 20 students, and I want to know what is the
+    90th percentile (.9) of the class.
+  - CONSTRUCTORS: PERCENTILE(Defined cells, defined percentile).
+  - In this case, we want cells E2:1000, based on the fact that team 449 scored
+    them. (See Filter for more info).
+  - We want to see how they can do based 90% of their percentiles. Meaning,
+    how well they can do at the top 10% of their time.
+
+PERCENTILE RANK (Derived from PERCENTILE):
+"=PERCENTRANK(FILTER(E2:E10000,B2:B10000=449), MODE(FILTER(E2:E10000,B2:B10000=449)))"
+EXPLANATION:
+  - PERCENTILE RANK gives the number of the times something pops up. For example
+    if I have a data set of (0,0,0,0,0,1).
+  - The result would be 5/6. The MODE is 0 (5 numbers) out of 6 numbers.
+  - CONSTRUCTORS: =PERCENTRANK(FILTER(E2:E10000,B2:B10000=449), MODE(FILTER(E2:E10000,B2:B10000=449)))
+  - PERCENTRANK(DATA RANGE, WHAT DATA TO LOOK FOR)
+  - In this case, we want to find the number of times something pops up (MODE,
+    see MODE for more info), out of a certain data range (see FILTER).
+  - Number of times the MODE or a particular data set appears
+  
+  IF STATEMENT 
+  "=IF(A2-(MAX(Sheet1!D1:D1000))<0,"DONE",A3-(MAX(Sheet1!D1:D1000)))"
+  - IF gives an output based on condition. A basic if statment. 
+  - CONSTRUCTORS: (condition, if true, if false). 
+  - In this case, if the A2 (value) - max value is less than zero, then say done. If that's not true, display
+    the value. 
+   
+  IMPORT RANGE 
+  "=IMPORTRANGE("1dlLtfWJsAavKXzaz8fMtir1sWPy9x5b55kBEAdMyJkI","matches!C1:F14")"
+  - imports range based on spreadsheet key (url, or id), and the matches. 
+  - CONSTRUCTORS: (url, or id, range (specify range))
+  - In this case, the id is "1dlLtfWJsAavKXzaz8fMtir1sWPy9x5b55kBEAdMyJkI", found after the "d" in the url. 
+    We want to import range "sheet 'matches' and the range C1;F14. 
+    
+  IF ERROR
+   "=IFERROR(MODE(FILTER(Sheet1!E2:E10001,Sheet1!B2:B10001=2961)),FILTER(Sheet1!E2:E10001,Sheet1!B2:B10001=2961))"
+   - If an error, what should I do? 
+   - CONSTRUCTORS: (error, no error) 
+   - IN this case if the MODE function gets an error, show the filtered information.
+ 
