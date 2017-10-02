@@ -28,7 +28,7 @@ public class App extends JFrame implements ActionListener
 	String newFrame6;
 	String newFrame7;
 	String newFrame8;
-	
+
 	JFrame frame1 = new JFrame("Data Received");
 	Container container = new Container();
 
@@ -111,30 +111,30 @@ public class App extends JFrame implements ActionListener
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 
-		
+
 		frame1.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		frame1.setSize(700, 700);
 		frame1.setLayout(new BorderLayout());
 
 
 
-		String[][] columns = {{"Match"}, {"Team"}, {"Autonomous Balls"}, {"Autonomous Gear?"}, {"Teleop Balls"}, 
-				{"Teleop Gears"}, {"Climb"}, {"Errors"}};
+		String[] columns = {"Match", "Team", "Autonomous Balls", "Autonomous Gear?", "Teleop Balls", 
+				"Teleop Gears", "Climb", "Errors"};
 
 
 
 		Object [][] data = {
-				{newFrame1 = match.getText(), newFrame2 = team.getText(), newFrame3 = autoBall.getText(), 
-						newFrame4 = autoGear.getText(), newFrame5 = teleBalls.getText(), newFrame6 = teleGears.getText(),
-						newFrame7 = climb.getText(), newFrame8 = errors.getText()}
-		};
-		
+				{newFrame1 = match.getText()}, {newFrame2 = team.getText()}, {newFrame3 = autoBall.getText()}, 
+				{newFrame4 = autoGear.getText()}, {newFrame5 = teleBalls.getText()}, 
+				{newFrame6 = teleGears.getText()}, {newFrame7 = climb.getText()}, 
+				{newFrame8 = errors.getText()}};
+
 		JTable table = new JTable(data, columns);
-		
+
 		table.setFillsViewportHeight(true);
 		frame1.add(table);
 		table.setVisible(true);
-		
+
 		frame1.setVisible(true);
 
 
@@ -144,7 +144,7 @@ public class App extends JFrame implements ActionListener
 
 
 
-	
-	
+
+
 	}
 }
