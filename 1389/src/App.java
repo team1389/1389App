@@ -118,8 +118,8 @@ public class App extends JFrame implements ActionListener
 
 
 
-		String[] columns = {"Match", "Team", "Autonomous Balls", "Autonomous Gear?", "Teleop Balls", 
-				"Teleop Gears", "Climb", "Errors"};
+		String[][] columns = {{"Match"}, {"Team"}, {"Autonomous Balls"}, {"Autonomous Gear?"}, {"Teleop Balls"}, 
+				{"Teleop Gears"}, {"Climb"}, {"Errors"}};
 
 
 
@@ -130,17 +130,11 @@ public class App extends JFrame implements ActionListener
 		};
 		
 		JTable table = new JTable(data, columns);
-		JScrollPane scrollPane = new JScrollPane(table);
+		
 		table.setFillsViewportHeight(true);
-		
-		scrollPane.add(table);
-		frame1.add(scrollPane);
-		
-		
-		
-		
+		frame1.add(table);
 		table.setVisible(true);
-		scrollPane.setVisible(true);
+		
 		frame1.setVisible(true);
 
 
