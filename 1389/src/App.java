@@ -7,7 +7,7 @@ import javax.swing.*;
 public class App extends JFrame implements ActionListener 
 { 
 
-	JLabel label = new JLabel("TELEOPERATED PERIOD");
+	JLabel label = new JLabel("TELEOPERATED PERIOD"); //variable declaration
 	JLabel label1 = new JLabel("AUTONOMOUS PERIOD");
 	JTextField match = new JTextField("Match");
 	JTextField team = new JTextField("Team");
@@ -17,27 +17,27 @@ public class App extends JFrame implements ActionListener
 	JTextField teleGears = new JTextField("TeleGears");
 	JTextField climb = new JTextField("Climbing Y/N");
 	JTextField errors = new JTextField("Errors?");
-	JButton submit = new JButton("Submit");
+	JButton submit = new JButton("Submit"); // end variable declaration
 
 
 	String newFrame1;
 	String newFrame2;
-	String newFrame3;
+	String newFrame3;		// the variables that print to the Jtables, use .getText()
 	String newFrame4;
 	String newFrame5;
 	String newFrame6;
 	String newFrame7;
 	String newFrame8;
 
-	JFrame frame1 = new JFrame("Data Received");
-	Container container = new Container();
+	JFrame frame1 = new JFrame("Data Received"); // the new frame that the button invokes
+	
 
 
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L; // eclipse complained when this wasnt here
 
 	public static void main(String[] args)
 	{
