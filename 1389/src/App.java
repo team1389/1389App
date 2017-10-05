@@ -60,6 +60,7 @@ public class App extends JFrame implements ActionListener
 
 
 		this.match.setAlignmentX(CENTER_ALIGNMENT);
+		this.match.setSize(20, 1);
 		box.add(match);
 
 
