@@ -7,7 +7,7 @@ import javax.swing.*;
 public class App extends JFrame implements ActionListener 
 { 
 
-	JLabel label = new JLabel("TELEOPERATED PERIOD");
+	JLabel label = new JLabel("TELEOPERATED PERIOD"); //variable declaration
 	JLabel label1 = new JLabel("AUTONOMOUS PERIOD");
 	JTextField match = new JTextField("Match");
 	JTextField team = new JTextField("Team");
@@ -17,49 +17,50 @@ public class App extends JFrame implements ActionListener
 	JTextField teleGears = new JTextField("TeleGears");
 	JTextField climb = new JTextField("Climbing Y/N");
 	JTextField errors = new JTextField("Errors?");
-	JButton submit = new JButton("Submit");
+	JButton submit = new JButton("Submit"); // end variable declaration
 
 
 	String newFrame1;
 	String newFrame2;
-	String newFrame3;
+	String newFrame3;		// the variables that print to the Jtables, use .getText()
 	String newFrame4;
 	String newFrame5;
 	String newFrame6;
 	String newFrame7;
 	String newFrame8;
 
-	JFrame frame1 = new JFrame("Data Received");
-	Container container = new Container();
+	JFrame frame1 = new JFrame("Data Received"); // the new frame that the button invokes
+	
 
 
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L; // eclipse complained when this wasnt here
 
 	public static void main(String[] args)
 	{
 		App frame = new App();
 		frame.setSize(500, 500);
 		frame.setResizable(false);
-		frame.setDefaultCloseOperation( DISPOSE_ON_CLOSE );
+		frame.setDefaultCloseOperation( DISPOSE_ON_CLOSE ); // making default table with all of the elements
 		frame.setLocationRelativeTo( null );
 		frame.setVisible(true);
 	}
 	public App()
 	{
 		Box box = Box.createVerticalBox();
-		add( box );
+		add( box ); // made box layout on the JFrame
 
 
-		label1.setAlignmentX(CENTER_ALIGNMENT);
+		label1.setAlignmentX(CENTER_ALIGNMENT); // centering things for cosmetic reasons
 		box.add(label1);
 
 
 
 		this.match.setAlignmentX(CENTER_ALIGNMENT);
+		this.match.setSize(20, 1);
 		box.add(match);
 
 
@@ -112,14 +113,15 @@ public class App extends JFrame implements ActionListener
 		// TODO Auto-generated method stub
 
 
-		frame1.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		frame1.setDefaultCloseOperation(DISPOSE_ON_CLOSE); // setting defaults for secondary frame
 		frame1.setSize(700, 700);
 		frame1.setLayout(new BorderLayout());
 
 
 
 		String[] columnNames = new String []{"Match", "Team", "Autonomous Balls", "Autonomous Gear?", "Teleop Balls", 
-				"Teleop Gears", "Climb", "Errors"};
+				"Teleop Gears", "Climb", "Errors"}; // this may be breaking the code, but this is what the columnnames are for the JTable it prints to
+		
 
 
 
@@ -127,13 +129,13 @@ public class App extends JFrame implements ActionListener
 			{match.getText()}, {team.getText()}, {autoBall.getText()}, 
 			{autoGear.getText()}, {teleBalls.getText()}, 
 			{teleGears.getText()}, {climb.getText()}, 
-			{errors.getText()}};
+			{errors.getText()}}; // data for the table
 
-			JTable table = new JTable(data, columnNames);
-			table.setVisible(true);
-			frame1.add(table);
+			JTable table = new JTable(data, columnNames); // making new table
+			table.setVisible(true);  //setting table visible
+			frame1.add(table); // adding table to frame
 
-			frame1.setVisible(true);
+			frame1.setVisible(true); // setting frame visible
 
 
 
