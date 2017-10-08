@@ -119,14 +119,9 @@ public class App extends JFrame implements ActionListener
 
 
 
-		 String[] columnNames = {"First Name",
-                 "Last Name",
-                 "Sport",
-                 "# of Years",
-                 "Vegetarian",
-                 "Test",
-                 "test2",
-                 "test3"}; // this may be breaking the code, but this is what the columnnames are for the JTable it prints to
+		 String[] columnNames = {"Match", "Team", "Auto Balls", 
+				 "Auto Gears", "Tele Balls", "Tele Gears", "Climb", "Errors"
+		 }; // this may be breaking the code, but this is what the columnnames are for the JTable it prints to
 		
 
 
@@ -137,8 +132,9 @@ public class App extends JFrame implements ActionListener
 					newFrame8 = errors.getText()
 			}};
 
-			JTable table = new JTable(data, columnNames); // making new table
-			table.setVisible(true);  //setting table visible
+			JTable table = new JTable(data, columnNames);
+			table.setLayout(new BorderLayout());
+		
 			frame1.add(table); // adding table to frame
 
 			frame1.setVisible(true); // setting frame visible
