@@ -119,17 +119,23 @@ public class App extends JFrame implements ActionListener
 
 
 
-		String[] columnNames = new String []{"Match", "Team", "Autonomous Balls", "Autonomous Gear?", "Teleop Balls", 
-				"Teleop Gears", "Climb", "Errors"}; // this may be breaking the code, but this is what the columnnames are for the JTable it prints to
+		 String[] columnNames = {"First Name",
+                 "Last Name",
+                 "Sport",
+                 "# of Years",
+                 "Vegetarian",
+                 "Test",
+                 "test2",
+                 "test3"}; // this may be breaking the code, but this is what the columnnames are for the JTable it prints to
 		
 
 
 
-		Object [][] data = new Object[][] {
-			{match.getText()}, {team.getText()}, {autoBall.getText()}, 
-			{autoGear.getText()}, {teleBalls.getText()}, 
-			{teleGears.getText()}, {climb.getText()}, 
-			{errors.getText()}}; // data for the table
+		Object [][] data = {
+			{newFrame1 = match.getText(), newFrame2 = team.getText(), newFrame3 = autoBall.getText(), newFrame4 = autoGear.getText(),
+					newFrame5 = teleBalls.getText(), newFrame6 = teleGears.getText(), newFrame7 = climb.getText(), 
+					newFrame8 = errors.getText()
+			}};
 
 			JTable table = new JTable(data, columnNames); // making new table
 			table.setVisible(true);  //setting table visible
