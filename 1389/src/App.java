@@ -1,4 +1,3 @@
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -31,6 +30,18 @@ public class App extends JFrame implements ActionListener
 	String newFrame8;
 
 	JFrame frame1 = new JFrame("Data Received"); // the new frame that the button invokes
+	final String[] columnNames = {"Match", "Team", "Auto Balls", 
+			"Auto Gears", "Tele Balls", "Tele Gears", "Climb", "Errors"
+	}; // this may be breaking the code, but this is what the columnnames are for the JTable it prints to
+
+
+
+
+	Object [] data = 
+		{newFrame1 = match.getText(), newFrame2 = team.getText(), newFrame3 = autoBall.getText(), newFrame4 = autoGear.getText(),
+		newFrame5 = teleBalls.getText(), newFrame6 = teleGears.getText(), newFrame7 = climb.getText(), 
+		newFrame8 = errors.getText()
+		};
 	JTable table = new JTable(new DefaultTableModel());
 	
 
@@ -119,38 +130,15 @@ public class App extends JFrame implements ActionListener
 
 		frame1.setDefaultCloseOperation(DISPOSE_ON_CLOSE); // setting defaults for secondary frame
 		frame1.setSize(700, 700);
-		frame1.setLayout(new BorderLayout());
-
-
-
-		String[] columnNames = {"Match", "Team", "Auto Balls", 
-				"Auto Gears", "Tele Balls", "Tele Gears", "Climb", "Errors"
-		}; // this may be breaking the code, but this is what the columnnames are for the JTable it prints to
-
-
-
-
-		Object [] data = 
-			{newFrame1 = match.getText(), newFrame2 = team.getText(), newFrame3 = autoBall.getText(), newFrame4 = autoGear.getText(),
-			newFrame5 = teleBalls.getText(), newFrame6 = teleGears.getText(), newFrame7 = climb.getText(), 
-			newFrame8 = errors.getText()
-			};
+	
 
 		
 		DefaultTableModel model = (DefaultTableModel) table.getModel();
-		model.addColumn(columnNames);
 		model.addRow(data);
+		table.setVisible(true);
 		frame1.add(table);
-
-
-		frame1.setVisible(true); // setting frame visible
-
-
-
-
-
-
-
+		
+		
 
 
 	}
