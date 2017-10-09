@@ -3,6 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 
 public class App extends JFrame implements ActionListener 
 { 
@@ -30,7 +31,9 @@ public class App extends JFrame implements ActionListener
 	String newFrame8;
 
 	JFrame frame1 = new JFrame("Data Received"); // the new frame that the button invokes
+	JTable table = new JTable(new DefaultTableModel());
 	
+
 
 
 
@@ -113,31 +116,34 @@ public class App extends JFrame implements ActionListener
 		// TODO Auto-generated method stub
 
 
+
 		frame1.setDefaultCloseOperation(DISPOSE_ON_CLOSE); // setting defaults for secondary frame
 		frame1.setSize(700, 700);
 		frame1.setLayout(new BorderLayout());
 
 
 
-		 String[] columnNames = {"Match", "Team", "Auto Balls", 
-				 "Auto Gears", "Tele Balls", "Tele Gears", "Climb", "Errors"
-		 }; // this may be breaking the code, but this is what the columnnames are for the JTable it prints to
-		
+		String[] columnNames = {"Match", "Team", "Auto Balls", 
+				"Auto Gears", "Tele Balls", "Tele Gears", "Climb", "Errors"
+		}; // this may be breaking the code, but this is what the columnnames are for the JTable it prints to
 
 
 
-		Object [][] data = {
+
+		Object [] data = 
 			{newFrame1 = match.getText(), newFrame2 = team.getText(), newFrame3 = autoBall.getText(), newFrame4 = autoGear.getText(),
-					newFrame5 = teleBalls.getText(), newFrame6 = teleGears.getText(), newFrame7 = climb.getText(), 
-					newFrame8 = errors.getText()
-			}};
+			newFrame5 = teleBalls.getText(), newFrame6 = teleGears.getText(), newFrame7 = climb.getText(), 
+			newFrame8 = errors.getText()
+			};
 
-			JTable table = new JTable(data, columnNames);
-			table.setLayout(new BorderLayout());
 		
-			frame1.add(table); // adding table to frame
+		DefaultTableModel model = (DefaultTableModel) table.getModel();
+		model.addColumn(columnNames);
+		model.addRow(data);
+		frame1.add(table);
 
-			frame1.setVisible(true); // setting frame visible
+
+		frame1.setVisible(true); // setting frame visible
 
 
 
