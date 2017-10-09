@@ -4,6 +4,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 public class App extends JFrame implements ActionListener 
 { 
@@ -28,15 +29,29 @@ public class App extends JFrame implements ActionListener
 	String newFrame5;
 	String newFrame6;
 	String newFrame7;
-	String newFrame8; 
-	
+	String newFrame8;
 
-	
-model = new DefaultTableModel(rowData, columnNames);
+
+
+JFrame frame1 = new JFrame("Data Received");
+
+final String[] columnNames = {"Match", "Team", "Auto Balls", 
+		"Auto Gears", "Tele Balls", "Tele Gears", "Climb", "Errors"
+}; // this may be breaking the code, but this is what the columnnames are for the JTable it prints to
+
+
+final	Object [] [] data = {
+	{newFrame1 = match.getText(), newFrame2 = team.getText(), newFrame3 = autoBall.getText(), newFrame4 = autoGear.getText(),
+	newFrame5 = teleBalls.getText(), newFrame6 = teleGears.getText(), newFrame7 = climb.getText(), 
+	newFrame8 = errors.getText()}
+	};
+
+TableModel model = new DefaultTableModel(data, columnNames);
 table = new JTable();
 table.setModel(model);
-	
-	
+frame1.add(new JScrollPane(table), BorderLayout.CENTER);
+
+
 
 
 
@@ -54,6 +69,7 @@ table.setModel(model);
 		frame.setLocationRelativeTo( null );
 		frame.setVisible(true);
 	}
+	
 	public App()
 	{
 		Box box = Box.createVerticalBox();
@@ -122,33 +138,15 @@ table.setModel(model);
 
 		frame1.setDefaultCloseOperation(DISPOSE_ON_CLOSE); // setting defaults for secondary frame
 		frame1.setSize(700, 700);
-	
-		final String[] columnNames = {"Match", "Team", "Auto Balls", 
-				"Auto Gears", "Tele Balls", "Tele Gears", "Climb", "Errors"
-		}; // this may be breaking the code, but this is what the columnnames are for the JTable it prints to
-
-
-
-
-	final	Object [] data = 
-			{newFrame1 = match.getText(), newFrame2 = team.getText(), newFrame3 = autoBall.getText(), newFrame4 = autoGear.getText(),
-			newFrame5 = teleBalls.getText(), newFrame6 = teleGears.getText(), newFrame7 = climb.getText(), 
-			newFrame8 = errors.getText()
-			};
 
 		
-		
-	
 		model.insertRow(1, data);
-	
-		
+
+
 		table.setVisible(true);
 		frame1.add(table);
-		
-		
-		 
-	     c.add(new JScrollPane(table), BorderLayout.CENTER);
-		
+
+		c.add(new JScrollPane(table), BorderLayout.CENTER);
 
 	}
 }
