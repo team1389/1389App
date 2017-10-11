@@ -46,10 +46,7 @@ final	Object [] [] data = {
 	newFrame8 = errors.getText()}
 	};
 
-TableModel model = new DefaultTableModel(data, columnNames);
-table = new JTable();
-table.setModel(model);
-frame1.add(new JScrollPane(table), BorderLayout.CENTER);
+
 
 
 
@@ -139,14 +136,15 @@ frame1.add(new JScrollPane(table), BorderLayout.CENTER);
 		frame1.setDefaultCloseOperation(DISPOSE_ON_CLOSE); // setting defaults for secondary frame
 		frame1.setSize(700, 700);
 
-		
-		model.insertRow(1, data);
-
-
+		JTable table = new JTable(data, columnNames);
 		table.setVisible(true);
 		frame1.add(table);
+		frame1.setVisible(true);
+		
+	
 
-		c.add(new JScrollPane(table), BorderLayout.CENTER);
+
+	
 
 	}
 }

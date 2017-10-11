@@ -1,72 +1,69 @@
-/**
- * 
- */
+import javax.swing.*;
 
-/**
- * @author evanb
- *
- */
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-
+import javax.swing.table.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.applet.*;
+import java.awt.event.*;
 
-public class GraphicsHandler {
-
+public class GraphicsHandler extends JFrame {
 	
-
 	/**
-	 * @param args
+	 * 
 	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	private static final long serialVersionUID = 1L;
+	static String match = JOptionPane.showInputDialog("Match");
+	static String team = JOptionPane.showInputDialog("Team");
+	static String autoball = JOptionPane.showInputDialog("Autonomous Balls?");
+	static String autogear = JOptionPane.showInputDialog("Automous Gear?");
+	static String teleball = JOptionPane.showInputDialog("Teleop Balls");
+	static String telegear = JOptionPane.showInputDialog("Teleop Gear?");
+	static String climbs = JOptionPane.showInputDialog("Climbed?");
+	static String errors = JOptionPane.showInputDialog("Errors");
 
-		JFrame frame = new JFrame("Main");
-		frame.setSize(500, 780);
-		frame.setLayout(null);
-		
-		JPanel panel = new JPanel();
-		panel.setSize(500, 780);
+    private static final Object[][] rowData = {{match, team, autoball, autogear, teleball, telegear, climbs, errors}};
+    private static final Object[] columnNames = {"Match", "Team", "Autonomous Balls", "Autonomous Gears", 
+    		"Teleop Balls", "Teleop Gears", "Climb Success?", "Errors"};
 
-		
-		frame.add(panel); 
-	
-		
-		JButton matches = new JButton("stuff");
-		matches.setVisible(true);
-		matches.addActionListener(null);
-		
-		panel.add(matches);
-		frame.setVisible(true);
+  
+    private JTable table;
+    private DefaultTableModel model;
 
-		JTextField text = new JTextField();
-		text.setSize(40, 40);
-		text.setVisible(true);
+    public GraphicsHandler() {
+         Container c = getContentPane();
+         c.setLayout(new BorderLayout());
 
-		panel.add(text);
-		frame.setVisible(true);
-		
-	}
-	
-public class buttons extends GraphicsHandler implements ActionListener {
-	
-	
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	
-	
-	
-	}
+         model = new DefaultTableModel(rowData, columnNames);
+         table = new JTable();
+         table.setModel(model);
+         c.add(new JScrollPane(table), BorderLayout.CENTER);
+         JButton add = new JButton("Add");
+         c.add(add, BorderLayout.SOUTH);
+         add.addActionListener(new ActionListener() {
+             public void actionPerformed(ActionEvent ae) {
+            	
+            	 Object [][] rowData = {{}};
+            	 
+            		String match = JOptionPane.showInputDialog("Match");
+            		String team = JOptionPane.showInputDialog("Team");
+            		String autoball = JOptionPane.showInputDialog("Autonomous Balls?");
+            		String autogear = JOptionPane.showInputDialog("Automous Gear?");
+            		String teleball = JOptionPane.showInputDialog("Teleop Balls");
+            		String telegear = JOptionPane.showInputDialog("Teleop Gear?");
+            		String climbs = JOptionPane.showInputDialog("Climbed?");
+            		String errors = JOptionPane.showInputDialog("Errors");
+            		
+            	Object [][] rowData1 = {{match, team, autoball, autogear, teleball, telegear, climbs, errors}};
+           
+             	model.addRow(rowData1[0]); 
+             } 
+         });
+         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+         pack(); 
+    }
 
+    public static void main(String[] args) {
+        GraphicsHandler g = new GraphicsHandler();
+        g.setLocationRelativeTo(null);
+        g.setVisible(true);
+    }
 }
