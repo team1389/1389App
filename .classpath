@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry kind="src" path="1389App-master/Java Interface"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry excluding="1389/src/|1389App-master/Java Interface/" kind="src" path=""/>
 	<classpathentry kind="src" path="1389/src"/>
-	<classpathentry kind="src" path="1389App-master/Java Interface"/>
 	<classpathentry kind="output" path="1389/bin"/>
 </classpath>
