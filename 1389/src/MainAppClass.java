@@ -11,6 +11,7 @@ public class MainAppClass extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
 	static String match = JOptionPane.showInputDialog("Match");
 	static String team = JOptionPane.showInputDialog("Team");
 	static String autoball = JOptionPane.showInputDialog("Autonomous Balls?");
@@ -31,6 +32,7 @@ public class MainAppClass extends JFrame {
     public MainAppClass() {
          Container c = getContentPane();
          c.setLayout(new BorderLayout());
+         
 
          model = new DefaultTableModel(rowData, columnNames);
          table = new JTable();
@@ -41,23 +43,24 @@ public class MainAppClass extends JFrame {
          add.addActionListener(new ActionListener() {
              public void actionPerformed(ActionEvent ae) {
             	
-            	 Object [][] rowData = {{}};
-            	 
-            		String match = JOptionPane.showInputDialog("Match");
-            		String team = JOptionPane.showInputDialog("Team");
-            		String autoball = JOptionPane.showInputDialog("Autonomous Balls?");
-            		String autogear = JOptionPane.showInputDialog("Automous Gear?");
-            		String teleball = JOptionPane.showInputDialog("Teleop Balls");
-            		String telegear = JOptionPane.showInputDialog("Teleop Gear?");
-            		String climbs = JOptionPane.showInputDialog("Climbed?");
-            		String errors = JOptionPane.showInputDialog("Errors");
+            	 Object [][] rowData = {{null}};
+            	
+            		 String match = JOptionPane.showInputDialog("Match");
+            		 String team = JOptionPane.showInputDialog("Team");
+            		 String autoball = JOptionPane.showInputDialog("Autonomous Balls?");
+            		 String autogear = JOptionPane.showInputDialog("Automous Gear?");
+            		 String teleball = JOptionPane.showInputDialog("Teleop Balls");
+            		 String telegear = JOptionPane.showInputDialog("Teleop Gear?");
+            		 String climbs = JOptionPane.showInputDialog("Climbed?");
+            		 String errors = JOptionPane.showInputDialog("Errors");
             		
-            	Object [][] rowData1 = {{match, team, autoball, autogear, teleball, telegear, climbs, errors}};
-           
-             	model.addRow(rowData1[0]); 
+            		Object [][] rowData1 = {{match, team, autoball, autogear, teleball, telegear, climbs, errors}};
+            		model.addRow(rowData1[0]); 
+            	
+            		
              } 
          });
-         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
          pack(); 
     }
 
