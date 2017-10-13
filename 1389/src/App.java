@@ -6,6 +6,8 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
+import com.sun.media.sound.ModelAbstractChannelMixer;
+
 public class App extends JFrame implements ActionListener 
 { 
 
@@ -21,7 +23,13 @@ public class App extends JFrame implements ActionListener
 	JTextField errors = new JTextField("Errors?");
 	JButton submit = new JButton("Submit"); // end variable declaration
 
+	
+	DefaultTableModel model = new DefaultTableModel();
+	
+	
+	
 
+	
 	String newFrame1;
 	String newFrame2;
 	String newFrame3;		// the variables that print to the Jtables, use .getText()
@@ -30,17 +38,18 @@ public class App extends JFrame implements ActionListener
 	String newFrame6;
 	String newFrame7;
 	String newFrame8;
-
+	
+	
 
 
 JFrame frame1 = new JFrame("Data Received");
 
-final String[] columnNames = {"Match", "Team", "Auto Balls", 
+ String[] columnNames = {"Match", "Team", "Auto Balls", 
 		"Auto Gears", "Tele Balls", "Tele Gears", "Climb", "Errors"
 }; // this may be breaking the code, but this is what the columnnames are for the JTable it prints to
 
 
-final	Object [] [] data = {
+	Object [] [] data = {
 	{newFrame1 = match.getText(), newFrame2 = team.getText(), newFrame3 = autoBall.getText(), newFrame4 = autoGear.getText(),
 	newFrame5 = teleBalls.getText(), newFrame6 = teleGears.getText(), newFrame7 = climb.getText(), 
 	newFrame8 = errors.getText()}
@@ -135,16 +144,33 @@ final	Object [] [] data = {
 
 		frame1.setDefaultCloseOperation(DISPOSE_ON_CLOSE); // setting defaults for secondary frame
 		frame1.setSize(700, 700);
-
+		
+		JButton button = new JButton("new frame");
+		button.addActionListener(this);
+		button.setVisible(true);
+		
 		JTable table = new JTable(data, columnNames);
 		table.setVisible(true);
 		frame1.add(table);
+		frame1.add(button);
 		frame1.setVisible(true);
 		
+		
+	}
 	
-
-
-	
+	public void actionPerformed1(ActionEvent e) {
+		
+		String newFrame1 = match.getText();
+		String newFrame2 = team.getText();
+		String newFrame3 = autoBall.getText();		// the variables that print to the Jtables, use .getText()
+		String newFrame4 = autoGear.getText();
+		String newFrame5 = teleBalls.getText();
+		String newFrame6 = teleGears.getText();
+		String newFrame7 = climb.getText();
+		String newFrame8 = errors.getText();
+		
+		Object [][] row1 = {{newFrame1, newFrame2, newFrame3, newFrame4, newFrame5, newFrame6, newFrame7, newFrame8}};
+		model.addRow(row1 [0]);
 
 	}
 }
